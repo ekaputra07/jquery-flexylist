@@ -1,5 +1,5 @@
 /*
- * jQuery flexyList v1.0.0 - 2012 - ekaputra@balitechy.com
+ * jQuery flexyList v1.0.0 - https://github.com/ekaputra07/jquery-flexylist
  * Create a same list width based on ul width and spacing width option.
  * USAGE:
  
@@ -52,12 +52,13 @@
         var margin = settings.spacing;
         var total_margin = (list_num - 1) * margin;
         var width = ul_width - total_margin;
-        var list_width = (width/list_num) + 'px';
+        var list_width = (width/list_num);
         
         this.children('li').each(function(){
-            $(this).css({'width': list_width, 'margin-right': margin});
+            $(this).css({'width': list_width+'px', 'margin-right': margin});
         });
         
+        this.children('li:last').css('width', (list_width-1)+'px');
         this.children('li:last').css('margin-right', 0);
     };
 })( jQuery );
